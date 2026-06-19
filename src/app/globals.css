@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-cream-50 text-charcoal-800 font-sans antialiased;
+  }
+
+  h1, h2, h3 {
+    @apply font-display;
+  }
+
+  ::selection {
+    @apply bg-brand-200 text-brand-900;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-6 py-2.5 rounded-lg
+      bg-brand-600 text-white font-medium text-sm
+      hover:bg-brand-700 active:bg-brand-800
+      transition-all duration-200 ease-out
+      shadow-elegant hover:shadow-elegant-md
+      disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 px-5 py-2 rounded-lg
+      bg-white text-brand-700 font-medium text-sm
+      border border-brand-200
+      hover:bg-cream-100 hover:border-brand-300
+      active:bg-cream-200
+      transition-all duration-200 ease-out
+      shadow-elegant hover:shadow-elegant-md;
+  }
+
+  .card {
+    @apply bg-white rounded-xl border border-cream-300 shadow-elegant
+      hover:shadow-elegant-md transition-shadow duration-300;
+  }
+
+  .input-field {
+    @apply w-full px-4 py-2.5 rounded-lg border border-cream-300
+      bg-white text-charcoal-800 text-sm
+      placeholder:text-charcoal-400
+      focus:outline-none focus:ring-2 focus:ring-brand-300 focus:border-brand-400
+      transition-all duration-200;
+  }
+
+  .select-field {
+    @apply w-full px-4 py-2.5 rounded-lg border border-cream-300
+      bg-white text-charcoal-800 text-sm
+      focus:outline-none focus:ring-2 focus:ring-brand-300 focus:border-brand-400
+      transition-all duration-200 appearance-none
+      bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%238A7248%22%20stroke-width%3D%222%22%3E%3Cpolyline%20points%3D%226%209%2012%2015%2018%209%22%3E%3C%2Fpolyline%3E%3C%2Fsvg%3E')]
+      bg-no-repeat bg-[right_0.75rem_center] bg-[length:1rem];
+  }
+
+  .label {
+    @apply block text-sm font-medium text-charcoal-600 mb-1.5;
+  }
+
+  .step-active {
+    @apply text-brand-700 border-b-2 border-brand-600 font-semibold;
+  }
+
+  .step-inactive {
+    @apply text-charcoal-400 border-b-2 border-transparent hover:text-charcoal-600 hover:border-cream-400;
+  }
+
+  .tag {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium
+      bg-cream-200 text-brand-700 border border-cream-300;
+  }
+}
+
+@layer utilities {
+  .scrollbar-cream {
+    scrollbar-width: thin;
+    scrollbar-color: #D4BC94 #F8F0E0;
+  }
+
+  .scrollbar-cream::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .scrollbar-cream::-webkit-scrollbar-track {
+    background: #F8F0E0;
+    border-radius: 3px;
+  }
+
+  .scrollbar-cream::-webkit-scrollbar-thumb {
+    background-color: #D4BC94;
+    border-radius: 3px;
+  }
+}
+
+/* Smooth loading animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.4s ease-out;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, #F8F0E0 25%, #FDF9F0 50%, #F8F0E0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+
+/* Indeterminate progress bar */
+@keyframes indeterminate {
+  0% { transform: translateX(-100%); width: 30%; }
+  50% { transform: translateX(40%); width: 50%; }
+  100% { transform: translateX(150%); width: 30%; }
+}
+
+.animate-indeterminate-progress {
+  animation: indeterminate 1.8s ease-in-out infinite;
+}

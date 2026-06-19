@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "QZT WhatsApp Chat Extractor MVP",
+  "version": "0.1.0",
+  "description": "Extract the currently open WhatsApp Web chat and send it to QZT Sales Assistant.",
+  "permissions": ["activeTab", "clipboardWrite", "scripting", "tabs"],
+  "host_permissions": [
+    "https://web.whatsapp.com/*",
+    "https://pluie-leads.vercel.app/*",
+    "https://*.vercel.app/*"
+  ],
+  "action": {
+    "default_title": "QZT WhatsApp Extractor",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://web.whatsapp.com/*"],
+      "js": ["content-script.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
