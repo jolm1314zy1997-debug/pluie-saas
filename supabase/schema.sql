@@ -1,4 +1,4 @@
--- QZT Lead System account + cloud sync schema
+-- Pluie account + cloud sync schema (forked from QZT Lead System)
 -- Run this once in Supabase SQL Editor, then configure Vercel env vars.
 
 create extension if not exists pgcrypto;
